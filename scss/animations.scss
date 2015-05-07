@@ -1,0 +1,12 @@
+@-webkit-keyframes fly-in {
+  0% { opacity: 0; transform: translateX(-100vw) rotateY(-70deg) skewX(-15deg); }
+  50% { opacity: 1; transform: translateX(0) rotateY(-70deg) skewX(-15deg); }
+  100% { opacity: 0; transform: translateX(100vw) rotateY(-70deg) skewX(-15deg); } }
+
+@-webkit-keyframes pulsate-fade {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; } }
+  
+@-webkit-keyframes revolve {
+}
