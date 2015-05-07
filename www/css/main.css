@@ -15,6 +15,13 @@
     opacity: 1; }
   100% {
     opacity: 0; } }
+@-webkit-keyframes come-in-from-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
 @-webkit-keyframes revolve {}
 html, body {
   margin: 0;
@@ -29,7 +36,8 @@ h1, h2, h3, h4, h5, h6 {
 .loading-container {
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.9); }
+  background: rgba(255, 255, 255, 0.9);
+  display: none; }
 
 .loading {
   min-height: 200px;
@@ -117,6 +125,26 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateZ(0); }
         .container .layers .layer.one:hover {
           transform: translateZ(5px); }
+        .container .layers .layer.one .text {
+          margin: 0 auto;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          right: 0;
+          width: 190px; }
+          .container .layers .layer.one .text .content {
+            opacity: 0;
+            transform: translateY(20px);
+            -webkit-animation: come-in-from-bottom 0.6s cubic-bezier(1, 0, 0, 1) forwards; }
+            .container .layers .layer.one .text .content:nth-child(1) {
+              -webkit-animation-delay: .6s; }
+            .container .layers .layer.one .text .content:nth-child(2) {
+              -webkit-animation-delay: 1.2s; }
+            .container .layers .layer.one .text .content:nth-child(3) {
+              -webkit-animation-delay: 1.8s; }
+          .container .layers .layer.one .text p {
+            margin: 0; }
       .container .layers .layer.two {
         background: green;
         transform: translateZ(-20px); }

@@ -13,7 +13,8 @@ h1, h2, h3, h4, h5, h6 {
 .loading-container {
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.9); }
+  background: rgba(255, 255, 255, 0.9);
+  display: none; }
 
 .loading {
   min-height: 200px;
@@ -111,7 +112,33 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateZ(0);
       
         &:hover {
-          transform: translateZ(5px); } }
+          transform: translateZ(5px); }
+    
+        .text {
+          margin: 0 auto;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          right: 0;
+          width: 190px;
+          
+          .content {
+            opacity: 0;
+            transform: translateY(20px);
+            -webkit-animation: come-in-from-bottom .6s cubic-bezier(1, 0, 0, 1) forwards;
+          
+            &:nth-child(1) {
+              -webkit-animation-delay: .6s; }
+          
+            &:nth-child(2) {
+              -webkit-animation-delay: 1.2s; }
+          
+            &:nth-child(3) {
+              -webkit-animation-delay: 1.8s; } }
+
+          p {
+            margin: 0; } } }
       
       &.two {
         background: green;
