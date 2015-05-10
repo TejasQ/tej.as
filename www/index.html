@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="tejas" ng-controller="site">
   <head>
     <title>Tej.as - Web Developer, Human</title>
     <meta name="description" content="The website of a front-end developer, and human being who enjoys technology.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Exo+2:400,100,200,300,600,700,800,900|Open+Sans+Condensed:700,300">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Exo+2:400,100,200,300,600,700,800,900|Open+Sans+Condensed:700,300|Montserrat:400">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
@@ -17,18 +17,47 @@
       </div>
     </div>
     <div class="container">
-      <div class="layers">
-        <div class="layer one">
-          <div class="text">
-            <h1 class="content">Hello</h1>
-            <p class="content">My name is Tejas Kumar.</p>
-            <p class="content">I am a fullstack engineer.</p>
+      <div ng-class="{ transformed: layers }" class="layers">
+        <div ng-click="open_layer('home')" ng-class="{front: layer.active === 'home'}" class="layer one">
+          <div class="layer-content">
+            <div class="text">
+              <h1 class="content">Hello</h1>
+              <p class="content">My name is Tejas Kumar.</p>
+              <p class="content">I am a fullstack engineer.</p>
+              <p class="content vertical-space">I am a person of <span id="letter-container" class="letter-container"><span expand-letter class="letter">l</span><span expand-letter class="letter">a</span><span expand-letter class="letter">y</span><span expand-letter class="letter">e</span><span expand-letter class="letter">r</span><span expand-letter class="letter">s</span><span expand-letter class="letter">.</span></span></p>
+              <button ng-click="layers ? layers = false : layers = true" class="content vertical-space transparent">See Layers</button>
+            </div>
           </div>
         </div>
-        <div class="layer two"></div>
+        <div ng-click="open_layer('work')" ng-class="{front: layer.active === 'work'}" class="layer two">
+          <div class="layer-content">
+            <button ng-click="layers ? layers = false : layers = true" class="toggle-layers fix-top-left"></button>
+            <p class="big-text">I create beautiful things with technology, currently for a company called <a target="_blank" href="http://grow.qa" rel="noindex">grow</a>. I believe in beautiful &mdash; inside and out; from code to user interface.</p>
+            <p class="big-text">Below are some of the technologies I love and use on a daily basis.</p>
+            <ul class="technologies">
+              <li class="html5"></li>
+              <li class="css3"></li>
+              <li class="js"></li>
+              <li class="angularjs"></li>
+              <li class="nodejs"></li>
+              <li class="npm"></li>
+              <li class="scss"></li>
+              <li class="less"></li>
+              <li class="git"></li>
+              <li class="grunt"></li>
+              <li class="jquery"></li>
+              <li class="jade"></li>
+              <li class="coffeescript"></li>
+            </ul>
+          </div>
+        </div>
         <div class="layer three"></div>
         <div class="layer four"></div>
       </div>
     </div>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
