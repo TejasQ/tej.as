@@ -77,10 +77,52 @@ app = angular
   }
 )
 
+.directive('swipeNav', ->
+  return {
+    link: (scope, element, attrs) ->
+      
+      touchstart = undefined
+      $(element).bind('touchstart dragstart', (e) ->
+        touchstart = e.originalEvent.changedTouches[0].clientX)
+      
+      $(element).bind('touchend dragend', (e) ->
+        touchend = e.originalEvent.changedTouches[0].clientX
+        difference = touchend - touchstart
+        
+        if difference < -100
+          
+          index = scope.sections.indexOf(scope.layer.active)
+          
+          if (index - 1 < 0)
+            next = scope.sections[scope.sections.length - 1]
+          else
+            next = scope.sections[index-1]
+            
+          scope.$apply(->
+            scope.layer.active = next
+          )
+          
+        else if difference > 100
+          index = scope.sections.indexOf(scope.layer.active)
+          
+          if (index + 1 >= scope.sections.length)
+            next = scope.sections[0]
+          else
+            next = scope.sections[index+1]
+            
+          scope.$apply(->
+            scope.layer.active = next
+          )
+      )
+  }
+)
+
 .controller('site', ($scope, $sce) ->
   
   $scope.layer = { active: 'home' }
   $scope.layers = { open: false }
+  
+  $scope.sections = ['home', 'work', 'music', 'personal', 'contact']
   
   $scope.open_layer = (layer) ->
     
@@ -90,7 +132,7 @@ app = angular
     else
       $scope.layers.open = true
       
-    $scope.layer.active = layer
+    $scope.layer.active = $scope.sections[layer]
 
     $scope.technologies = [
       {

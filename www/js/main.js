@@ -78,6 +78,42 @@
         return jQuery(element).on('mousemove', mousemove);
       }
     };
+  }).directive('swipeNav', function() {
+    return {
+      link: function(scope, element, attrs) {
+        var touchstart;
+        touchstart = void 0;
+        $(element).bind('touchstart dragstart', function(e) {
+          return touchstart = e.originalEvent.changedTouches[0].clientX;
+        });
+        return $(element).bind('touchend dragend', function(e) {
+          var difference, index, next, touchend;
+          touchend = e.originalEvent.changedTouches[0].clientX;
+          difference = touchend - touchstart;
+          if (difference < -100) {
+            index = scope.sections.indexOf(scope.layer.active);
+            if (index - 1 < 0) {
+              next = scope.sections[scope.sections.length - 1];
+            } else {
+              next = scope.sections[index - 1];
+            }
+            return scope.$apply(function() {
+              return scope.layer.active = next;
+            });
+          } else if (difference > 100) {
+            index = scope.sections.indexOf(scope.layer.active);
+            if (index + 1 >= scope.sections.length) {
+              next = scope.sections[0];
+            } else {
+              next = scope.sections[index + 1];
+            }
+            return scope.$apply(function() {
+              return scope.layer.active = next;
+            });
+          }
+        });
+      }
+    };
   }).controller('site', function($scope, $sce) {
     $scope.layer = {
       active: 'home'
@@ -85,6 +121,7 @@
     $scope.layers = {
       open: false
     };
+    $scope.sections = ['home', 'work', 'music', 'personal', 'contact'];
     return $scope.open_layer = function(layer) {
       console.log($scope.layers.open);
       if ($scope.layers.open) {
@@ -92,7 +129,7 @@
       } else {
         $scope.layers.open = true;
       }
-      $scope.layer.active = layer;
+      $scope.layer.active = $scope.sections[layer];
       return $scope.technologies = [
         {
           slug: 'html',

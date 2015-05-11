@@ -48,6 +48,7 @@ html, body {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
   font-smoothing: antialiased;
+  overflow: hidden;
   -webkit-text-size-adjust: 100%; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -160,6 +161,8 @@ h1, h2, h3, h4, h5, h6 {
       .container .layers .layer.one {
         background: white;
         transform: translateZ(-30px); }
+        .container .layers .layer.one .layer-content {
+          color: #000; }
         .container .layers .layer.one:hover {
           transform: translateZ(-20px); }
         .container .layers .layer.one .text {
@@ -167,6 +170,7 @@ h1, h2, h3, h4, h5, h6 {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
+          vertical-align: top;
           left: 0;
           right: 0;
           max-width: 290px; }
@@ -193,15 +197,6 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateZ(-60px); }
         .container .layers .layer.two:hover {
           transform: translateZ(-50px); }
-        .container .layers .layer.two .layer-content {
-          padding: 80px 50px;
-          max-width: 1300px;
-          margin: 0 auto; }
-          .container .layers .layer.two .layer-content a:link, .container .layers .layer.two .layer-content a:visited {
-            text-decoration: underline;
-            color: #fff; }
-          .container .layers .layer.two .layer-content a:hover {
-            color: rgba(0, 0, 0, 0.6); }
       .container .layers .layer.three {
         background: #F06449;
         transform: translateZ(-90px); }
@@ -213,7 +208,7 @@ h1, h2, h3, h4, h5, h6 {
         .container .layers .layer.four:hover {
           transform: translateZ(-110px); }
       .container .layers .layer.five {
-        background: #2D2D2A;
+        background: #23395B;
         transform: translateZ(-150px); }
         .container .layers .layer.five:hover {
           transform: translateZ(-140px); }
@@ -221,15 +216,37 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateZ(0); }
         .container .layers .layer.front:hover {
           transform: translateZ(0); }
+  .container .layer-content {
+    padding: 80px 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+    color: #fff; }
+    .container .layer-content a:link, .container .layer-content a:visited, .container .layer-content span.link:link, .container .layer-content span.link:visited {
+      text-decoration: underline;
+      color: #fff; }
+    .container .layer-content a:hover, .container .layer-content span.link:hover {
+      color: rgba(0, 0, 0, 0.6); }
+  .container .embed-container {
+    background-color: rgba(0, 0, 0, 0.1); }
+    @media (min-width: 415px) {
+      .container .embed-container {
+        padding: 50px; } }
+    .container .embed-container iframe {
+      width: 100%;
+      height: 600px;
+      border: 0; }
   .container .descriptor {
     color: rgba(0, 0, 0, 0.8);
     transform: rotate(-90deg) translate3d(-23px, 93px, 0);
     position: fixed;
+    z-index: 1;
     margin: 0;
     right: 0;
     top: 0;
     height: 40px;
     width: 210px; }
+    .container .descriptor.white {
+      color: rgba(255, 255, 255, 0.6); }
 
 .letter-container {
   position: relative; }
@@ -295,11 +312,15 @@ button {
       font-size: 13px; }
 
 .big-text {
-  font-size: 3rem;
+  font-size: 2rem;
   letter-spacing: -1px; }
+  @media (min-width: 415px) {
+    .big-text {
+      font-size: 3rem; } }
 
 .fix-top-left {
   position: fixed;
+  z-index: 1;
   top: 50px;
   left: 50px; }
 
@@ -336,19 +357,20 @@ ul.technologies {
       overflow-y: auto;
       -webkit-overflow-scrolling: touch; }
 
-i.icon.layers {
+i.icon.layers-icon {
   position: relative;
   width: 20px;
   height: 20px;
   display: inline-block;
   perspective: 25px;
   perspective-origin: 30px;
-  transform: rotate3d(1, -1, 0.2, 30deg) translateZ(0);
+  transform: scale(1) rotate3d(1, -1, 0.2, 30deg) translate3d(0, 0, 0);
+  transform-style: preserve-3d;
   margin-left: -7px;
   margin-top: 2px;
   overflow: visible;
   -webkit-backface-visibility: hidden; }
-  i.icon.layers:before, i.icon.layers:after {
+  i.icon.layers-icon:before, i.icon.layers-icon:after {
     display: block;
     position: absolute;
     top: 0;
@@ -356,8 +378,10 @@ i.icon.layers {
     content: '';
     width: 20px;
     height: 20px;
-    transform: translateZ(-5px); }
-  i.icon.layers:after {
+    transform: scale(1) translate3d(0, 0, -5px);
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden; }
+  i.icon.layers-icon:after {
     -webkit-animation: 2s layer-fade-out ease infinite; }
 i.white {
   background-color: white; }
