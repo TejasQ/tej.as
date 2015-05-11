@@ -20,6 +20,8 @@ calculateDistance = (elem, mouseX, mouseY) ->
     x: Math.floor(Math.sqrt((mouseX - (elem.offset().left + elem.width() / 2)) ** 2))
     y: Math.floor(Math.sqrt((mouseY - (elem.offset().top + elem.height() / 2)) ** 2))
   }
+
+FastClick.attach(document.body);
   
 app = angular
 .module('tejas', ['ngAnimate', 'ui.router'])
@@ -89,7 +91,7 @@ app = angular
         touchend = e.originalEvent.changedTouches[0].clientX
         difference = touchend - touchstart
         
-        if difference < -100
+        if difference > 100
           
           index = scope.sections.indexOf(scope.layer.active)
           
@@ -102,7 +104,7 @@ app = angular
             scope.layer.active = next
           )
           
-        else if difference > 100
+        else if difference < -100
           index = scope.sections.indexOf(scope.layer.active)
           
           if (index + 1 >= scope.sections.length)
