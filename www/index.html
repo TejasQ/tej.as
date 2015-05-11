@@ -23,32 +23,42 @@
             <div class="text">
               <h1 class="content">Hello</h1>
               <p class="content">My name is Tejas Kumar.</p>
-              <p class="content">I am a fullstack engineer.</p>
-              <p class="content vertical-space">I am a person of <span id="letter-container" class="letter-container"><span expand-letter class="letter">l</span><span expand-letter class="letter">a</span><span expand-letter class="letter">y</span><span expand-letter class="letter">e</span><span expand-letter class="letter">r</span><span expand-letter class="letter">s</span><span expand-letter class="letter">.</span></span></p>
-              <button ng-click="layers.open ? layers.open = false : layers.open = true" class="content vertical-space transparent">See Layers</button>
+              <p class="content">I am a person of many <span id="letter-container" class="letter-container"><span expand-letter class="letter">l</span><span expand-letter class="letter">a</span><span expand-letter class="letter">y</span><span expand-letter class="letter">e</span><span expand-letter class="letter">r</span><span expand-letter class="letter">s</span><span expand-letter class="letter">.</span></span></p>
+              <button ng-click="layers.open ? layers.open = false : layers.open = true" class="content vertical-space invisible see-layers"><i class="icon layers black"> </i><span>See Layers</span></button>
             </div>
           </div>
         </div>
         <div layer="work" ng-class="{front: layer.active === 'work'}" class="layer two">
+          <h1 class="descriptor">Work</h1>
           <div class="layer-content">
-            <button ng-click="layers.open ? layers.open = false : layers.open = true" class="toggle-layers fix-top-left"></button>
-            <p class="big-text">I create beautiful things with technology, currently for a company called <a target="_blank" href="http://grow.qa" rel="noindex">grow</a>. I believe in beautiful &mdash; inside and out; from code to user interface.</p>
-            <p class="big-text">Below are some of the technologies I love and use on a daily basis.</p>
-            <ul class="technologies">
-              <li ng-repeat="tech in technologies" ng-class="tech" style="background-image: url('img/tech/{{tech.slug}}.png')">
-                <div ng-bind-html="tech.text" class="text"></div>
-              </li>
-            </ul>
+            <button ng-click="layers.open ? layers.open = false : layers.open = true" class="toggle-layers fix-top-left"><i class="icon layers white"></i></button>
+            <section>
+              <p class="big-text">I create beautiful things with technology, currently for a company called <a target="_blank" href="http://grow.qa" rel="noindex">grow</a>. I believe in beautiful &mdash; inside and out; from code to user interface.</p>
+              <p class="big-text">Below are some of the technologies I love and use on a daily basis.</p>
+              <ul class="technologies">
+                <li ng-repeat="tech in technologies" ng-class="tech" style="background-image: url('img/tech/{{tech.slug}}.png')">
+                  <div ng-bind-html="tech.text" class="text"></div>
+                </li>
+              </ul>
+            </section>
           </div>
         </div>
-        <div class="layer three"></div>
-        <div class="layer four"></div>
+        <div class="layer three">
+          <h1 class="descriptor">Music</h1>
+        </div>
+        <div class="layer four">
+          <h1 class="descriptor">Personal</h1>
+        </div>
+        <div class="layer five">
+          <h1 class="descriptor">Contact</h1>
+        </div>
       </div>
     </div>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
