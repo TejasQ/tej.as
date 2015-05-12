@@ -31,25 +31,25 @@
     };
   };
 
-  FastClick.attach(document.body);
-
-  app = angular.module('tejas', ['ngAnimate', 'ui.router']).directive('expandLetter', function($timeout) {
+  app = angular.module('tejas', ['ngAnimate', 'ui.router']).run(function() {
+    return FastClick.attach(document.body);
+  }).directive('expandLetter', function($timeout) {
     return {
       link: function(scope, element, attrs) {
         return $timeout(function() {
           return angular.element(element).addClass('expanded');
-        }, 2300);
+        }, 2000);
       }
     };
   }).directive('layer', function() {
     return {
       link: function(scope, element, attrs) {
         return jQuery(element).bind('click', function() {
-          return scope.$apply(function() {
-            if (jQuery('.layers').hasClass('transformed')) {
+          if (jQuery('#layers').hasClass('transformed')) {
+            return scope.$apply(function() {
               return scope.open_layer(attrs.layer);
-            }
-          });
+            });
+          }
         });
       }
     };

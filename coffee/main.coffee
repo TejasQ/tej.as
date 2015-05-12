@@ -20,18 +20,18 @@ calculateDistance = (elem, mouseX, mouseY) ->
     x: Math.floor(Math.sqrt((mouseX - (elem.offset().left + elem.width() / 2)) ** 2))
     y: Math.floor(Math.sqrt((mouseY - (elem.offset().top + elem.height() / 2)) ** 2))
   }
-
-FastClick.attach(document.body);
   
 app = angular
 .module('tejas', ['ngAnimate', 'ui.router'])
-
+.run(->
+  FastClick.attach(document.body)
+)
 .directive('expandLetter', ($timeout) ->
   return {
     link: (scope, element, attrs) ->
       $timeout( ->
         angular.element(element).addClass('expanded')
-      , 2300)
+      , 2000)
   }
 )
 
@@ -41,10 +41,10 @@ app = angular
       
       jQuery(element).bind('click', ->
         
-        scope.$apply(->
-          if jQuery('.layers').hasClass('transformed')
+        if jQuery('#layers').hasClass('transformed')
+          scope.$apply(->
             scope.open_layer(attrs.layer)
-        )
+          )
       )
   }
 )

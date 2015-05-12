@@ -16,9 +16,9 @@ html(ng-app="tejas", ng-controller="site")
     div.container
       button.toggle-layers.fix-top-left(ng-click="layers.open ? layers.open = false : layers.open = true", ng-if="layer.active !== 'home' && !layers.open")
         i.icon.layers-icon.white
-      div.layers(swipe-nav, ng-class="{ transformed: layers.open }")
+      div#layers.layers(swipe-nav, ng-class="{ transformed: layers.open }")
         div.layer.one(layer="0", ng-class="{front: layer.active === 'home'}")
-          div.layer-content
+          div.layer-content(ng-if="layer.active === 'home'")
             div.text
               h1.content Hello
               p.content My name is Tejas Kumar.
@@ -36,7 +36,7 @@ html(ng-app="tejas", ng-controller="site")
                 span See Layers
         div.layer.two(layer="1", ng-class="{front: layer.active === 'work'}")
           h1.descriptor Work
-          div.layer-content
+          div.layer-content(ng-if="layer.active === 'work'")
             section
               p.big-text I create beautiful things with technology, currently for a company called <a target="_blank" href="http://grow.qa" rel="noindex">grow</a>. I believe in beautiful &mdash; inside and out; from code to user interface.
               p.big-text Below are some of the technologies I love and use on a daily basis.
@@ -45,14 +45,14 @@ html(ng-app="tejas", ng-controller="site")
                   div(class="text", ng-bind-html="tech.text")
         div.layer.three(layer="2", ng-class="{front: layer.active === 'music'}")
           h1.descriptor Music
-          div.layer-content
+          div.layer-content(ng-if="layer.active === 'music'")
             section
               p.big-text I create and <em>teach</em> music. I play guitar and bass and sing. I also teach music. <span class="link" ng-click="layer.active = 'contact'">Get in touch</span> if you're interested. Here's some music I've made.
             div.embed-container
               iframe(scrolling="no", frameborder="no", src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/7808007&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true")
         div.layer.four(layer="3", ng-class="{front: layer.active === 'personal'}")
           h1.descriptor.white About
-          div.layer-content
+          div.layer-content(ng-if="layer.active === 'personal'")
             section
               p.big-text I was born with <a href="http://en.wikipedia.org/wiki/Hemophilia" rel="nofollow" target="_blank">hemophilia</a>. It's nasty. I've lived with it all my life. Because of it, I could not do many things: like go to school regularly as a child. In a year, I would attend about two weeks. Because of this, I had a lot of free time. I spent that free time playing with &mdash; and eventually getting really good at &mdash; <em>computer stuff</em>.
               p.big-text I've lived in Qatar for the past 18 years. I believe in miracles. Why? I'm glad you asked:
@@ -64,7 +64,7 @@ html(ng-app="tejas", ng-controller="site")
               p.big-text Miracles are real. If you'd like to talk, <span class="link" ng-click="layer.active = 'contact'">hit me up</span>.
         div.layer.five(layer="4", ng-class="{front: layer.active === 'contact'}")
           h1.descriptor.white Contact
-          div.layer-content
+          div.layer-content(ng-if="layer.active === 'contact'")
             section
               p.big-text If I interest you and you'd like to get in touch, <a href="mailto:hello@tej.as">send me an email</a>. I can also be found on <a href="http://fb.com/tejaskumar" rel="nofollow" target="_blank">facebook</a>, <a href="http://twitter.com/tejaskumar_" rel="nofollow" target="_blank">twitter</a> and <a href="http://instagram.com/tejaskumar" rel="nofollow" target="_blank">instagram.</a> I look forward to hearing from you!
               div.embed-container
