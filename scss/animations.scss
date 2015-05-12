@@ -1,20 +1,20 @@
-@-webkit-keyframes fly-in {
+@keyframes fly-in {
   0% { opacity: 0; transform: translateX(-100vw) rotateY(-70deg) skewX(-15deg); }
   50% { opacity: 1; transform: translateX(0) rotateY(-70deg) skewX(-15deg); }
   100% { opacity: 0; transform: translateX(100vw) rotateY(-70deg) skewX(-15deg); } }
 
-@-webkit-keyframes pulsate-fade {
+@keyframes pulsate-fade {
   0% { opacity: 0; }
   50% { opacity: 1; }
   100% { opacity: 0; } }
 
-@-webkit-keyframes come-in-from-bottom {
+@keyframes come-in-from-bottom {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); } }
   
-@-webkit-keyframes layer-fade-out {
+@keyframes layer-fade-out {
   100% { transform: translateZ(-40px); opacity: 0; } }
 
-@-webkit-keyframes perspective-breathe {
+@keyframes perspective-breathe {
   50% { perspective: 9em; }
   100% { perspective: 10em; } }
