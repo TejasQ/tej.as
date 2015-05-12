@@ -31,7 +31,7 @@ app = angular
     link: (scope, element, attrs) ->
       $timeout( ->
         angular.element(element).addClass('expanded')
-      , 2000)
+      , 2300)
   }
 )
 
