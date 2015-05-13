@@ -41,7 +41,13 @@ h1, h2, h3, h4, h5, h6 {
   width: 100vw;
   height: 100vh;
   background: rgba(255, 255, 255, 0.9);
-  display: none; }
+  
+  &.ng-leave {
+    opacity: 1; }
+  
+  &.ng-leave-active {
+    opacity: 0;
+    transform: translateY(-100px); } }
 
 .loading {
   min-height: 200px;

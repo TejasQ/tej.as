@@ -37,8 +37,14 @@ h1, h2, h3, h4, h5, h6 {
 .loading-container {
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.9);
-  display: none; }
+  background: rgba(255, 255, 255, 0.9); }
+  .loading-container.ng-leave {
+    opacity: 1; }
+  .loading-container.ng-leave-active {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+        -ms-transform: translateY(-100px);
+            transform: translateY(-100px); }
 
 .loading {
   min-height: 200px;

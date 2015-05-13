@@ -61,6 +61,7 @@
       }
     };
   }).controller('site', function($scope, $sce) {
+    $scope.loaded = true;
     $scope.layer = {
       active: 'home'
     };

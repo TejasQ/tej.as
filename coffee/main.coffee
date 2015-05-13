@@ -68,6 +68,8 @@ app = angular
 )
 
 .controller('site', ($scope, $sce) ->
+
+  $scope.loaded = true;
   
   $scope.layer = { active: 'home' }
   $scope.layers = { open: false }
