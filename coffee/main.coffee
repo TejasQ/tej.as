@@ -1,31 +1,9 @@
-debounce = (func, wait, immediate) ->
-  timeout = undefined
-  return ->
-    context = this
-    args = arguments
-    later = ->
-      timeout = null
-      if !immediate
-        func.apply context, args
-      return
-
-    callNow = immediate and !timeout
-    clearTimeout(timeout)
-    timeout = setTimeout(later, wait)
-    if callNow
-      func.apply(context, args)
-
-calculateDistance = (elem, mouseX, mouseY) ->
-  {
-    x: Math.floor(Math.sqrt((mouseX - (elem.offset().left + elem.width() / 2)) ** 2))
-    y: Math.floor(Math.sqrt((mouseY - (elem.offset().top + elem.height() / 2)) ** 2))
-  }
-  
 app = angular
 .module('tejas', ['ngAnimate', 'ui.router'])
 .run(->
   FastClick.attach(document.body)
 )
+
 .directive('expandLetter', ($timeout) ->
   return {
     link: (scope, element, attrs) ->
@@ -46,36 +24,6 @@ app = angular
             scope.open_layer(attrs.layer)
           )
       )
-  }
-)
-
-.directive('moveTheLayers', ->
-  return {
-    link: (scope, element, attrs) ->
-      
-      jQuery(element).bind('touchstart', (e) ->
-        
-        scope.$apply(->
-          $('.layers.transformed').css('transition-timing-function', 'ease')
-        )
-      )
-      
-      jQuery(element).bind('touchmove', (e) ->
-        
-        debounce(scope.$apply(->
-          $('.layers.transformed').css('transform', 'translateX(-70px) translateY(-50%) rotateX('+e.originalEvent.touches[0].screenY/10+'deg) rotateY('+e.originalEvent.touches[0].screenX/10+'deg) rotateZ(20deg) skew(-11deg, 0deg)')
-        ), 250)
-      )
-    
-      mousemove = (e) ->
-          distance = calculateDistance($(e.originalEvent.srcElement), e.clientX, e.clientY)
-          distance = distance.x
-          if distance > 50
-            scope.$apply(->
-              $('.layers.transformed').css('perspective', distance+'px')
-            )
-      
-      jQuery(element).on('mousemove', mousemove)
   }
 )
 

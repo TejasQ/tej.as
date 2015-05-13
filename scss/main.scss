@@ -15,7 +15,8 @@ html, body {
   overflow: hidden; }
 
 body {
-  overflow: hidden; }
+  overflow: hidden;
+  background: rgb(255,255,255); }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif; }
@@ -96,6 +97,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   backface-visibility: hidden;
   overflow: hidden;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,1) 25%,rgba(219,219,219,1) 100%);
   
   .layers {
     width: 100vw;

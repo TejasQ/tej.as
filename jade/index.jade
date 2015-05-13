@@ -13,7 +13,7 @@ html(ng-app="tejas", ng-controller="site")
         div.layer.two
         div.layer.three
         h1 Loading
-    div.container
+    div.container(watch-scroll)
       button.toggle-layers.fix-top-left(ng-click="layers.open ? layers.open = false : layers.open = true", ng-if="layer.active !== 'home' && !layers.open")
         i.icon.layers-icon.white
       div#layers.layers(swipe-nav, ng-class="{ transformed: layers.open }")
