@@ -363,39 +363,41 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 0;
     left: 0;
-    transition: all .2s ease;
+    transition: all ease;
+    transition-delay: 2.5s;
     opacity: 0;
+    backface-visibility: hidden;
     
     &.expanded {
       opacity: 1;
         
         &:nth-child(1) {
           transform: translateX(3px);
-          transition-delay: .3s }
+          transition-duration: .3s; }
         
         &:nth-child(2) {
           transform: translateX(8px);
-          transition-delay: .6s }
+          transition-duration: .6s; }
         
         &:nth-child(3) {
           transform: translateX(17px);
-          transition-delay: .9s }
+          transition-duration: .9s; }
         
         &:nth-child(4) {
           transform: translateX(26px);
-          transition-delay: 1.2s }
+          transition-duration: 1.2s; }
         
         &:nth-child(5) {
           transform: translateX(36px);
-          transition-delay: 1.5s }
+          transition-duration: 1.5s; }
         
         &:nth-child(6) {
           transform: translateX(42px);
-          transition-delay: 1.8s }
+          transition-duration: 1.8s; }
         
         &:nth-child(7) {
           transform: translateX(49px);
-          transition-delay: 2.1s } } } }
+          transition-duration: 2.1s; } } } }
 
 i {
   
@@ -501,7 +503,7 @@ button {
       transform: scale(0); }
   
     i.icon.layers-icon {
-      transform: rotate3d(1, -1, 0.2, 30deg) translate3d(14px, -2px, 0); } }
+      transform: rotate3d(1, -1, 0.2, 30deg) translate3d(15px, -2px, 0); } }
 
   &.see-layers {
     text-transform: uppercase;

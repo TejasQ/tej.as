@@ -8,44 +8,36 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <div ng-if="!loaded" class="loading-container">
-      <div class="loading">
-        <div class="layer one"></div>
-        <div class="layer two"></div>
-        <div class="layer three"></div>
-        <h1>Loading</h1>
-      </div>
-    </div>
-    <div watch-scroll class="container">
-      <button ng-click="layers.open ? layers.open = false : layers.open = true" ng-if="layer.active !== 'home' &amp;&amp; !layers.open" class="toggle-layers fix-top-left"><i class="icon layers-icon white"></i></button>
-      <div id="layers" swipe-nav ng-class="{ transformed: layers.open }" class="layers">
-        <div layer="0" ng-class="{front: layer.active === 'home'}" class="layer one">
-          <div ng-if="layer.active === 'home'" class="layer-content">
+    <div class="container">
+      <button data-ng-click="layers.open ? layers.open = false : layers.open = true" data-ng-show="layer.active !== 'home' &amp;&amp; !layers.open" data-ng-if="layer.active !== 'home' &amp;&amp; !layers.open" class="toggle-layers fix-top-left"><i class="icon layers-icon white"></i></button>
+      <div id="layers" data-ng-class="{ transformed: layers.open }" class="layers">
+        <div data-layer="0" data-ng-class="{front: layer.active === 'home'}" class="layer one">
+          <div data-ng-if="layer.active === 'home'" class="layer-content">
             <div class="text">
               <h1 class="content">Hello</h1>
               <p class="content">My name is Tejas Kumar.</p>
-              <p class="content">I am a person of many <span id="letter-container" class="letter-container"><span expand-letter class="letter">l</span><span expand-letter class="letter">a</span><span expand-letter class="letter">y</span><span expand-letter class="letter">e</span><span expand-letter class="letter">r</span><span expand-letter class="letter">s</span><span expand-letter class="letter">.</span></span></p>
+              <p class="content">I am a person of many <span id="letter-container" class="letter-container"><span data-expand-letter class="letter">l</span><span data-expand-letter class="letter">a</span><span data-expand-letter class="letter">y</span><span data-expand-letter class="letter">e</span><span data-expand-letter class="letter">r</span><span data-expand-letter class="letter">s</span><span data-expand-letter class="letter">.</span></span></p>
               <button ng-click="layers.open ? layers.open = false : layers.open = true" class="content vertical-space invisible see-layers"><i class="icon layers-icon black"> </i><span>See Layers</span></button>
             </div>
           </div>
         </div>
-        <div layer="1" ng-class="{front: layer.active === 'work'}" class="layer two">
+        <div data-layer="1" data-ng-class="{front: layer.active === 'work'}" class="layer two">
           <h1 class="descriptor">Work</h1>
           <div ng-if="layer.active === 'work'" class="layer-content">
             <section>
               <p class="big-text">I create beautiful things with technology, currently for a company called <a target="_blank" href="http://grow.qa" rel="noindex">grow</a>. I believe in beautiful &mdash; inside and out; from code to user interface.</p>
               <p class="big-text">Below are some of the technologies I love and use on a daily basis.</p>
               <ul class="technologies">
-                <li ng-repeat="tech in technologies" ng-class="tech" style="background-image: url('img/tech/{{tech.slug}}.png')">
-                  <div ng-bind-html="tech.text" class="text"></div>
+                <li data-ng-repeat="tech in technologies" data-ng-class="tech" style="background-image: url('img/tech/{{tech.slug}}.png')">
+                  <div data-ng-bind-html="tech.text" class="text"></div>
                 </li>
               </ul>
             </section>
           </div>
         </div>
-        <div layer="2" ng-class="{front: layer.active === 'music'}" class="layer three">
+        <div data-layer="2" data-ng-class="{front: layer.active === 'music'}" class="layer three">
           <h1 class="descriptor">Music</h1>
-          <div ng-if="layer.active === 'music'" class="layer-content">
+          <div data-ng-if="layer.active === 'music'" class="layer-content">
             <section>
               <p class="big-text">I create and <em>teach</em> music. I play guitar and bass and sing. I also teach music. <span class="link" ng-click="layer.active = 'contact'">Get in touch</span> if you're interested. Here's some music I've made.</p>
             </section>
@@ -54,9 +46,9 @@
             </div>
           </div>
         </div>
-        <div layer="3" ng-class="{front: layer.active === 'personal'}" class="layer four">
+        <div data-layer="3" data-ng-class="{front: layer.active === 'personal'}" class="layer four">
           <h1 class="descriptor white">About</h1>
-          <div ng-if="layer.active === 'personal'" class="layer-content">
+          <div data-ng-if="layer.active === 'personal'" class="layer-content">
             <section>
               <p class="big-text">I was born with <a href="http://en.wikipedia.org/wiki/Hemophilia" rel="nofollow" target="_blank">hemophilia</a>. It's nasty. I've lived with it all my life. Because of it, I could not do many things: like go to school regularly as a child. In a year, I would attend about two weeks. Because of this, I had a lot of free time. I spent that free time playing with &mdash; and eventually getting really good at &mdash; <em>computer stuff</em>.</p>
               <p class="big-text">I've lived in Qatar for the past 18 years. I believe in miracles. Why? I'm glad you asked:
@@ -71,9 +63,9 @@
             </section>
           </div>
         </div>
-        <div layer="4" ng-class="{front: layer.active === 'contact'}" class="layer five">
+        <div data-layer="4" data-ng-class="{front: layer.active === 'contact'}" class="layer five">
           <h1 class="descriptor white">Contact</h1>
-          <div ng-if="layer.active === 'contact'" class="layer-content">
+          <div data-ng-if="layer.active === 'contact'" class="layer-content">
             <section>
               <p class="big-text">If I interest you and you'd like to get in touch, <a href="mailto:hello@tej.as">send me an email</a>. I can also be found on <a href="http://fb.com/tejaskumar" rel="nofollow" target="_blank">facebook</a>, <a href="http://twitter.com/tejaskumar_" rel="nofollow" target="_blank">twitter</a> and <a href="http://instagram.com/tejaskumar" rel="nofollow" target="_blank">instagram.</a> I look forward to hearing from you!</p>
               <div class="embed-container">

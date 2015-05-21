@@ -7,52 +7,53 @@ html(ng-app="tejas", ng-controller="site")
     link(rel="stylesheet", type="text/css", href="//fonts.googleapis.com/css?family=Exo+2:400,100,200,300,600,700,800,900|Open+Sans+Condensed:700,300|Montserrat:400")
     link(rel="stylesheet", type="text/css", href="css/main.css")
   body
-    div.loading-container(ng-if="!loaded")
-      div.loading
-        div.layer.one
-        div.layer.two
-        div.layer.three
-        h1 Loading
-    div.container(watch-scroll)
-      button.toggle-layers.fix-top-left(ng-click="layers.open ? layers.open = false : layers.open = true", ng-if="layer.active !== 'home' && !layers.open")
+    //-
+      div.loading-container(ng-if="!loaded")
+        div.loading
+          div.layer.one
+          div.layer.two
+          div.layer.three
+          h1 Loading
+    div.container
+      button.toggle-layers.fix-top-left(data-ng-click="layers.open ? layers.open = false : layers.open = true", data-ng-show="layer.active !== 'home' && !layers.open", data-ng-if="layer.active !== 'home' && !layers.open")
         i.icon.layers-icon.white
-      div#layers.layers(swipe-nav, ng-class="{ transformed: layers.open }")
-        div.layer.one(layer="0", ng-class="{front: layer.active === 'home'}")
-          div.layer-content(ng-if="layer.active === 'home'")
+      div#layers.layers(data-ng-class="{ transformed: layers.open }")
+        div.layer.one(data-layer="0", data-ng-class="{front: layer.active === 'home'}")
+          div.layer-content(data-ng-if="layer.active === 'home'")
             div.text
               h1.content Hello
               p.content My name is Tejas Kumar.
               p.content I am a person of many 
                 span#letter-container.letter-container
-                  span.letter(expand-letter) l
-                  span.letter(expand-letter) a
-                  span.letter(expand-letter) y
-                  span.letter(expand-letter) e
-                  span.letter(expand-letter) r
-                  span.letter(expand-letter) s
-                  span.letter(expand-letter) .
+                  span.letter(data-expand-letter) l
+                  span.letter(data-expand-letter) a
+                  span.letter(data-expand-letter) y
+                  span.letter(data-expand-letter) e
+                  span.letter(data-expand-letter) r
+                  span.letter(data-expand-letter) s
+                  span.letter(data-expand-letter) .
               button.content.vertical-space.invisible.see-layers(ng-click="layers.open ? layers.open = false : layers.open = true")
                 i.icon.layers-icon.black 
                 span See Layers
-        div.layer.two(layer="1", ng-class="{front: layer.active === 'work'}")
+        div.layer.two(data-layer="1", data-ng-class="{front: layer.active === 'work'}")
           h1.descriptor Work
           div.layer-content(ng-if="layer.active === 'work'")
             section
               p.big-text I create beautiful things with technology, currently for a company called <a target="_blank" href="http://grow.qa" rel="noindex">grow</a>. I believe in beautiful &mdash; inside and out; from code to user interface.
               p.big-text Below are some of the technologies I love and use on a daily basis.
               ul.technologies
-                li(ng-repeat="tech in technologies", ng-class="tech", style="background-image: url('img/tech/{{tech.slug}}.png')")
-                  div(class="text", ng-bind-html="tech.text")
-        div.layer.three(layer="2", ng-class="{front: layer.active === 'music'}")
+                li(data-ng-repeat="tech in technologies", data-ng-class="tech", style="background-image: url('img/tech/{{tech.slug}}.png')")
+                  div(class="text", data-ng-bind-html="tech.text")
+        div.layer.three(data-layer="2", data-ng-class="{front: layer.active === 'music'}")
           h1.descriptor Music
-          div.layer-content(ng-if="layer.active === 'music'")
+          div.layer-content(data-ng-if="layer.active === 'music'")
             section
               p.big-text I create and <em>teach</em> music. I play guitar and bass and sing. I also teach music. <span class="link" ng-click="layer.active = 'contact'">Get in touch</span> if you're interested. Here's some music I've made.
             div.embed-container
               iframe(scrolling="no", frameborder="no", src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/7808007&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true")
-        div.layer.four(layer="3", ng-class="{front: layer.active === 'personal'}")
+        div.layer.four(data-layer="3", data-ng-class="{front: layer.active === 'personal'}")
           h1.descriptor.white About
-          div.layer-content(ng-if="layer.active === 'personal'")
+          div.layer-content(data-ng-if="layer.active === 'personal'")
             section
               p.big-text I was born with <a href="http://en.wikipedia.org/wiki/Hemophilia" rel="nofollow" target="_blank">hemophilia</a>. It's nasty. I've lived with it all my life. Because of it, I could not do many things: like go to school regularly as a child. In a year, I would attend about two weeks. Because of this, I had a lot of free time. I spent that free time playing with &mdash; and eventually getting really good at &mdash; <em>computer stuff</em>.
               p.big-text I've lived in Qatar for the past 18 years. I believe in miracles. Why? I'm glad you asked:
@@ -62,9 +63,9 @@ html(ng-app="tejas", ng-controller="site")
                   li My family was relocated to Qatar in 1997. Qatar was relatively unknown in 1997.
                   li Shortly after moving here, my family found out this country is one of the only countries in the <em>world</em> where this treatment is free for expats.
               p.big-text Miracles are real. If you'd like to talk, <span class="link" ng-click="layer.active = 'contact'">hit me up</span>.
-        div.layer.five(layer="4", ng-class="{front: layer.active === 'contact'}")
+        div.layer.five(data-layer="4", data-ng-class="{front: layer.active === 'contact'}")
           h1.descriptor.white Contact
-          div.layer-content(ng-if="layer.active === 'contact'")
+          div.layer-content(data-ng-if="layer.active === 'contact'")
             section
               p.big-text If I interest you and you'd like to get in touch, <a href="mailto:hello@tej.as">send me an email</a>. I can also be found on <a href="http://fb.com/tejaskumar" rel="nofollow" target="_blank">facebook</a>, <a href="http://twitter.com/tejaskumar_" rel="nofollow" target="_blank">twitter</a> and <a href="http://instagram.com/tejaskumar" rel="nofollow" target="_blank">instagram.</a> I look forward to hearing from you!
               div.embed-container
