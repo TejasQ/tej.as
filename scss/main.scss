@@ -76,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 90px;
     height: 90px;
     position: absolute;
+    backface-visibility: hidden;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -116,8 +117,8 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     transform-style: preserve-3d;
     transition: all 1s cubic-bezier(.69,0,.3,.98);
-    @media(min-width: 1025px) {
-      transition: all 1s cubic-bezier(.69,0,.3,.98); }
+    //@media(min-width: 1025px) {
+      //transition: all 1s cubic-bezier(.69,0,.3,.98); }
     will-change: perspective, perspective-origin, transform;
     perspective: 10rem;
     perspective-origin: 0em;
@@ -125,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
     backface-visibility: hidden;
     
     &.transformed {
-      transform: translateX(-70px) scale(0.6) rotate3d(1,0,1, 20deg) skew(-11deg, 0deg);
+      transform: translateX(-70px) scale(0.6) rotate3d(1,0,1, 20deg) skewX(-11deg);
       //perspective: 10em;
       //transition: all 1s cubic-bezier(.69,0,.3,.98);
       perspective-origin: 42em;
@@ -183,6 +184,7 @@ h1, h2, h3, h4, h5, h6 {
         &.front {
           opacity: 0.9;
           transform: translateZ(0);
+          z-index: 90;
       
           &:hover {
             transform: translateZ(-10px); } } } }
@@ -216,12 +218,29 @@ h1, h2, h3, h4, h5, h6 {
         .text {
           margin: 0 auto;
           position: absolute;
-          top: 50%;
           transform: translateY(-50%);
           vertical-align: top;
+          top: 50%;
           left: 0;
           right: 0;
+          bottom: 0;
+          
           max-width: 290px;
+          width: 290px;
+          
+          max-height: 170px;
+          height: 170px;
+          
+          button {
+            height: 60px;
+            font-family: inherit;
+          
+            span {
+              margin-top: 10px;
+              display: block;
+              transition: .6s all cubic-bezier(0.52, -1.82, 0.19, 2.16);
+              padding-right: 10px;
+              float: right; } }
           
           .content {
             opacity: 0;
@@ -378,6 +397,54 @@ h1, h2, h3, h4, h5, h6 {
           transform: translateX(49px);
           transition-delay: 2.1s } } } }
 
+i {
+  
+  &.icon {
+    
+    &.layers-icon {
+      transition: .6s all cubic-bezier(0.52, -1.82, 0.19, 2.16);
+      position: relative;
+      z-index: 2;
+      width: 20px;
+      height: 20px;
+      
+      display: block;
+      float: left; 
+      perspective: 25px;
+      perspective-origin: 30px 26px;
+      transform: rotate3d(1, -1, 0.2, 30deg) translateX(6px);
+      margin-left: -7px;
+      margin-top: 2px;
+      overflow: visible;
+      backface-visibility: hidden; 
+
+      &:before, &:after {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 20px;
+        height: 20px;
+        transform: scale(1) translate3d(0, 0, -5px);
+        transform-style: preserve-3d;
+        backface-visibility: hidden; }
+
+      &:after {
+        animation: 2s layer-fade-out ease infinite; } } } 
+      
+      &.white {
+        background-color: white;
+        
+        &:before, &:after {
+          border: 2px solid white; } }
+      
+      &.black {
+        background-color: black;
+        
+        &:before, &:after {
+          border: 2px solid black; } } }
+
 button {
   cursor: pointer;
   -webkit-appearance: none;
@@ -431,7 +498,10 @@ button {
     &.ng-leave-active {
       opacity: 0;
       transition-delay: .8s;
-      transform: scale(0); } }
+      transform: scale(0); }
+  
+    i.icon.layers-icon {
+      transform: rotate3d(1, -1, 0.2, 30deg) translate3d(14px, -2px, 0); } }
 
   &.see-layers {
     text-transform: uppercase;
@@ -446,10 +516,10 @@ button {
     &:hover {
       
       i {
-        transform: scale(1.5) rotate3d(1, -1, 0.2, 30deg) }
+        transform: scale(1.5) rotate3d(1, -1, 0.2, 30deg) translateX(6px); }
     
       span { 
-        transition: .6s all cubic-bezier(0.52, -1.82, 0.19, 2.16); } } } }
+        transform: translateX(10px); } } } }
 
 .big-text {
   font-size: 2rem;
@@ -516,53 +586,6 @@ ul {
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
           backface-visibility: hidden; } } } } }
-
-i {
-  
-  &.icon {
-    
-    &.layers-icon {
-      transition: .6s all cubic-bezier(0.52, -1.82, 0.19, 2.16);
-      position: relative;
-      z-index: 2;
-      width: 20px;
-      height: 20px;
-      
-      display: inline-block;
-      perspective: 25px;
-      perspective-origin: 30px 26px;
-      transform: rotate3d(1, -1, 0.2, 30deg);
-      margin-left: -7px;
-      margin-top: 2px;
-      overflow: visible;
-      backface-visibility: hidden; 
-
-      &:before, &:after {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        width: 20px;
-        height: 20px;
-        transform: scale(1) translate3d(0, 0, -5px);
-        transform-style: preserve-3d;
-        backface-visibility: hidden; }
-
-      &:after {
-        animation: 2s layer-fade-out ease infinite; } } } 
-      
-      &.white {
-        background-color: white;
-        
-        &:before, &:after {
-          border: 2px solid white; } }
-      
-      &.black {
-        background-color: black;
-        
-        &:before, &:after {
-          border: 2px solid black; } } }
       
 /* ANIMATIONS */
 @import 'animations.scss';
