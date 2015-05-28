@@ -18,3 +18,32 @@
 @keyframes perspective-breathe {
   50% { perspective: 9rem; }
   100% { perspective: 10rem; } }
+
+@keyframes dance {
+  0% {
+    animation-timing-function: ease-out;
+    transform: rotate(-10deg) translateY(30px) translateX(15px); }
+  12.5% {
+    animation-timing-function: ease-in;
+    transform: rotate(-10deg) translateY(10px) translateX(15px); }
+  25% {
+    animation-timing-function: ease-out;
+    transform: rotate(-10deg) translateY(30px) translateX(15px); }
+  37.5% {
+    animation-timing-function: ease-in;
+    transform: rotate(0deg) translateY(10px) translateX(15px); }
+  50% {
+    animation-timing-function: ease-out;
+    transform: rotate(10deg) translateY(30px) translateX(15px); }
+  62.5% {
+    animation-timing-function: ease-in;
+    transform: rotate(10deg) translateY(10px) translateX(15px); }
+  75% {
+    animation-timing-function: ease-out;
+    transform: rotate(10deg) translateY(30px) translateX(15px); }
+  87.5% {
+    animation-timing-function: ease-in;
+    transform: rotate(0deg) translateY(10px) translateX(15px); }
+  100% {
+    animation-timing-function: ease-in;
+    transform: rotate(-10deg) translateY(30px) translateX(15px); } }

@@ -2,22 +2,24 @@
 (function() {
   var app;
 
-  app = angular.module('tejas', ['ngAnimate', 'ui.router']).run(function() {
-    return FastClick.attach(document.body);
+  app = angular.module('tejas', ['ngAnimate', 'ui.router']).run(function($timeout) {
+    return $timeout(function() {
+      return FastClick.attach(document.body);
+    });
   }).directive('expandLetter', function($timeout) {
     return {
       link: function(scope, element, attrs) {
         return $timeout(function() {
           return angular.element(element).addClass('expanded');
-        }, 2);
+        });
       }
     };
-  }).directive('layer', function() {
+  }).directive('layer', function($timeout) {
     return {
       link: function(scope, element, attrs) {
         return jQuery(element).bind('click', function() {
           if (jQuery('#layers').hasClass('transformed')) {
-            return scope.$apply(function() {
+            return $timeout(function() {
               return scope.open_layer(attrs.layer);
             });
           }
@@ -49,7 +51,7 @@
           text: $sce.trustAsHtml("<code>html<br>&nbsp;&nbsp;head<br>&nbsp;&nbsp;&nbsp;&nbsp;title I love this.<br>&nbsp;&nbsp;body<br>&nbsp;&nbsp;&nbsp;&nbsp;p Hello<br>&nbsp;&nbsp;&nbsp;&nbsp;p My name is Tejas</code>")
         }, {
           slug: 'css',
-          text: $sce.trustAsHtml("<code>animation: dance .6s infinite;</code><br><div class='dancer'></div>")
+          text: $sce.trustAsHtml("<code class='dance'>animation: dance 1s ease infinite;</code><br><div class='dancer'></div>")
         }, {
           slug: 'sass',
           text: $sce.trustAsHtml("<code>$soAreVariables: rgba(white, 0.5);<br><br>.nesting {<br>&nbsp;&nbsp;.is-cool {<br>&nbsp;&nbsp;&nbsp;&nbsp;color: <br>&nbsp;&nbsp;&nbsp;&nbsp;$soAreVariables; } }</code>")
@@ -67,7 +69,7 @@
           text: $sce.trustAsHtml("<code>var myApp = angular.module('myapp', ['ngAnimate', 'ui.router']);</code>")
         }, {
           slug: 'jquery',
-          text: $sce.trustAsHtml("<code>$(document).ready(<br>function(){<br>&nbsp;&nbsp;//DOM manipulation is &nbsp;&nbsp;cool!<br>});</code>")
+          text: $sce.trustAsHtml("<code>$(document).ready(<br>function(){<br>&nbsp;&nbsp;//DOM manipulation is cool!<br>});</code>")
         }, {
           slug: 'coffeescript',
           text: $sce.trustAsHtml("<code>forcedIndents = 'sometimes annoying'<br><br>implicitReturns = 'Also sometimes annoying'<br><br>arrowFunctions = -> <br>&nbsp;&nbsp;'Cool!'</code>")

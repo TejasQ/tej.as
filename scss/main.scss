@@ -209,7 +209,7 @@ h1, h2, h3, h4, h5, h6 {
         opacity: 1; }
       
       &.one {
-        background: white;
+        background-color: white;
         z-index: 5;
           
         .layer-content {
@@ -263,21 +263,23 @@ h1, h2, h3, h4, h5, h6 {
       
       &.two {
         z-index: 4;
-        background: $color-primary;
+        background-color: $color-primary;
         color: $white;
         font-family: 'Montserrat', Arial, Helvetica, sans-serif; }
       
       &.three {
         z-index: 3;
-        background: $color-secondary; }
+        background-color: $color-secondary; }
       
       &.four {
         z-index: 2;
-        background: $color-tertiary; } 
+        background-color: $color-tertiary;
+        background-image: url('../img/blood-bg.png');
+        background-size: cover; } 
       
       &.five {
         z-index: 1;
-        background: $color-quinary; } 
+        background-color: $color-quinary; } 
       
       &.front {
         pointer-events: all;
@@ -340,7 +342,34 @@ h1, h2, h3, h4, h5, h6 {
         iframe {
           width: 100%;
           height: 600px;
-          border: 0; } } }
+          border: 0; 
+          
+          &.instagram {
+            min-height: 195px;
+          
+            @media (min-width: 375px) {
+              min-height: 235px; }
+          
+            @media (min-width: 414px) {
+              min-height: 264px; }
+          
+            @media (min-width: 480px) {
+              min-height: 239px; }
+          
+            @media (min-width: 568px) {
+              min-height: 305px; }
+          
+            @media (min-width: 667px) {
+              min-height: 379px; }
+          
+            @media (min-width: 736px) {
+              min-height: 401px; }
+          
+            @media (min-width: 1024) {
+              min-height: 617px; }
+          
+            @media (min-width: 1170) {
+              min-height: 800px; } } } } }
 
       .descriptor {
         transform: rotate(-90deg) translate(-23px,93px);
@@ -355,6 +384,9 @@ h1, h2, h3, h4, h5, h6 {
         
         &.white {
           color: rgba(white, 0.6);  } } }
+
+.dance {
+  animation: dance 2s ease infinite; }
 
 .letter-container {
   position: relative;
@@ -470,6 +502,7 @@ button {
   &.toggle-layers {
     background-color: rgba(black, 0.4);
     backdrop-filter: blur(10px);
+    padding: 0;
     //background-image: url('../img/layer-toggler.png');
     //background-size: 70%;
     //background-position: 50%;
@@ -503,7 +536,7 @@ button {
       transform: scale(0); }
   
     i.icon.layers-icon {
-      transform: rotate3d(1, -1, 0.2, 30deg) translate3d(15px, -2px, 0); } }
+      transform: rotate3d(1, -1, 0.2, 30deg) translate3d(21px, -3px, 0); } }
 
   &.see-layers {
     text-transform: uppercase;
@@ -544,6 +577,12 @@ button {
     left: 50px; } }
 
 ul {
+  
+  &.big-text {
+    
+    li {
+      margin: 30px 0; } } 
+  
   &.technologies {
     list-style-type: none;
     padding: 0;
