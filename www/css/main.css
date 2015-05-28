@@ -111,8 +111,10 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   overflow: hidden;
-  background: -webkit-radial-gradient(center, ellipse, white 25%, #dbdbdb 100%);
-  background: radial-gradient(ellipse at center, white 25%, #dbdbdb 100%); }
+  background-image: url("../img/bg.png"), -webkit-radial-gradient(center, ellipse, white 25%, #dbdbdb 100%);
+  background-image: url("../img/bg.png"), radial-gradient(ellipse at center, white 25%, #dbdbdb 100%);
+  background-position: bottom right;
+  background-repeat: no-repeat; }
   .container .layers {
     width: 100vw;
     height: 100vh;
@@ -142,8 +144,8 @@ h1, h2, h3, h4, h5, h6 {
               perspective-origin: 42em; }
       @media (min-width: 568px) {
         .container .layers.transformed {
-          -webkit-perspective-origin: 78em;
-                  perspective-origin: 78em; } }
+          -webkit-perspective-origin: 68em;
+                  perspective-origin: 68em; } }
       @media (min-width: 737px) {
         .container .layers.transformed {
           -webkit-perspective-origin: 90em;

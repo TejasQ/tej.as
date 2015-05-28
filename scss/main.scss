@@ -104,7 +104,9 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   backface-visibility: hidden;
   overflow: hidden;
-  background: radial-gradient(ellipse at center, rgba(255,255,255,1) 25%,rgba(219,219,219,1) 100%);
+  background-image: url('../img/bg.png'), radial-gradient(ellipse at center, rgba(255,255,255,1) 25%,rgba(219,219,219,1) 100%);
+  background-position: bottom right;
+  background-repeat: no-repeat;
   
   .layers {
     width: 100vw;
@@ -133,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
       //-webkit-animation: perspective-origin-breathe 40s infinite ease;
       
       @media (min-width: 568px) {
-        perspective-origin: 78em; }
+        perspective-origin: 68em; }
       
       @media (min-width: 737px) {
         perspective-origin: 90em; }
