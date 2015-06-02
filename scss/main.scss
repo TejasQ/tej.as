@@ -128,11 +128,11 @@ h1, h2, h3, h4, h5, h6 {
     backface-visibility: hidden;
     
     &.transformed {
-      transform: translateX(-70px) scale(0.6) rotate3d(1,0,1, 20deg) skewX(-11deg);
-      //perspective: 10em;
-      //transition: all 1s cubic-bezier(.69,0,.3,.98);
-      perspective-origin: 42em;
-      //-webkit-animation: perspective-origin-breathe 40s infinite ease;
+      transform: translate3d(-18rem, -8rem, 0) rotate3d(1, 0, 1, 60deg) skewX(-11deg);
+      perspective-origin: 50em;
+      
+      @media (min-width: 568px) {
+        transform: translateX(-70px) scale(0.6) rotate3d(1,0,1, 20deg) skewX(-11deg); }
       
       @media (min-width: 568px) {
         perspective-origin: 68em; }
@@ -144,7 +144,7 @@ h1, h2, h3, h4, h5, h6 {
         perspective-origin: 80em; }
       
       @media (min-width: 1024px) {
-        perspective-origin: 130%; }
+        perspective-origin: 160%; }
     
       .layer {
         opacity: 0.9;
