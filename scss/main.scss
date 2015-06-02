@@ -107,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url('../img/bg.png'), radial-gradient(ellipse at center, rgba(255,255,255,1) 25%,rgba(219,219,219,1) 100%);
   background-position: bottom right;
   background-repeat: no-repeat;
+  background-size: 220px 182px, auto;
   
   .layers {
     width: 100vw;
@@ -123,28 +124,27 @@ h1, h2, h3, h4, h5, h6 {
       //transition: all 1s cubic-bezier(.69,0,.3,.98); }
     will-change: perspective, perspective-origin, transform;
     perspective: 10rem;
-    perspective-origin: 0em;
     animation: perspective-breathe 7s infinite ease;
     backface-visibility: hidden;
+    perspective-origin: 50em;
+      
+    @media (min-width: 568px) {
+      perspective-origin: 68em; }
+
+    @media (min-width: 737px) {
+      perspective-origin: 90em; }
+
+    @media (min-width: 768px) {
+      perspective-origin: 80em; }
+
+    @media (min-width: 1024px) {
+      perspective-origin: 140%; }
     
     &.transformed {
       transform: translate3d(-18rem, -8rem, 0) rotate3d(1, 0, 1, 60deg) skewX(-11deg);
-      perspective-origin: 50em;
       
       @media (min-width: 568px) {
         transform: translateX(-70px) scale(0.6) rotate3d(1,0,1, 20deg) skewX(-11deg); }
-      
-      @media (min-width: 568px) {
-        perspective-origin: 68em; }
-      
-      @media (min-width: 737px) {
-        perspective-origin: 90em; }
-      
-      @media (min-width: 768px) {
-        perspective-origin: 80em; }
-      
-      @media (min-width: 1024px) {
-        perspective-origin: 160%; }
     
       .layer {
         opacity: 0.9;
@@ -347,31 +347,31 @@ h1, h2, h3, h4, h5, h6 {
           border: 0; 
           
           &.instagram {
-            min-height: 195px;
+            max-height: 195px;
           
             @media (min-width: 375px) {
-              min-height: 235px; }
+              max-height: 235px; }
           
             @media (min-width: 414px) {
-              min-height: 264px; }
+              max-height: 264px; }
           
             @media (min-width: 480px) {
-              min-height: 239px; }
+              max-height: 239px; }
           
             @media (min-width: 568px) {
-              min-height: 305px; }
+              max-height: 305px; }
           
             @media (min-width: 667px) {
-              min-height: 379px; }
+              max-height: 379px; }
           
             @media (min-width: 736px) {
-              min-height: 401px; }
+              max-height: 401px; }
           
             @media (min-width: 1024) {
-              min-height: 617px; }
+              max-height: 617px; }
           
             @media (min-width: 1170) {
-              min-height: 800px; } } } } }
+              max-height: 800px; } } } } }
 
       .descriptor {
         transform: rotate(-90deg) translate(-23px,93px);

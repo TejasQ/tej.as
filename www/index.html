@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <button data-ng-click="layers.open ? layers.open = false : layers.open = true" data-ng-show="layer.active !== 'home' &amp;&amp; !layers.open" data-ng-if="layer.active !== 'home' &amp;&amp; !layers.open" class="toggle-layers fix-top-left"><i class="icon layers-icon white"></i></button>
+      <button data-ng-click="layers.open ? layers.open = false : layers.open = true" data-ng-show="layer.active !== 'home' &amp;&amp; !layers.open" data-ng-if="layer.active !== 'home' &amp;&amp; !layers.open" class="toggle-layers ng-hide fix-top-left"><i class="icon layers-icon white"></i></button>
       <div id="layers" data-ng-class="{ transformed: layers.open }" class="layers">
         <div data-layer="0" data-ng-class="{front: layer.active === 'home'}" class="layer one">
           <div class="layer-content">

@@ -15,7 +15,7 @@ html(ng-app="tejas", ng-controller="site")
           div.layer.three
           h1 Loading
     div.container
-      button.toggle-layers.fix-top-left(data-ng-click="layers.open ? layers.open = false : layers.open = true", data-ng-show="layer.active !== 'home' && !layers.open", data-ng-if="layer.active !== 'home' && !layers.open")
+      button.toggle-layers.ng-hide.fix-top-left(data-ng-click="layers.open ? layers.open = false : layers.open = true", data-ng-show="layer.active !== 'home' && !layers.open", data-ng-if="layer.active !== 'home' && !layers.open")
         i.icon.layers-icon.white
       div#layers.layers(data-ng-class="{ transformed: layers.open }")
         div.layer.one(data-layer="0", data-ng-class="{front: layer.active === 'home'}")
