@@ -50,8 +50,7 @@ module.exports = function(grunt){
           },
           my_target: {
             files: {
-              'www/js/main.js': ['www/js/main.js'],
-              'www/js/jquery.sketchpad.min.js': ['www/js/jquery.sketchpad.min.js']
+              'www/js/main.js': ['www/js/main.js']
             }
           }
         },
@@ -59,7 +58,8 @@ module.exports = function(grunt){
         cssmin: {
           target: {
             files: {
-              'www/css/main.css': ['www/css/main.css']
+              'www/css/main.css': ['www/css/main.css'],
+              'www/css/animations.css': ['www/css/animations.css']
             }
           }
         }
