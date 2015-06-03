@@ -208,7 +208,6 @@ h1, h2, h3, h4, h5, h6 {
       transition: .4s all cubic-bezier(0.43, 0.01, 0.32, 0.99);
       opacity: 0;
       cursor: pointer;
-      backface-visibility: hidden;
       backdrop-filter: blur(10px);
       
       &.front-remove-active, &.front-add {
@@ -216,6 +215,12 @@ h1, h2, h3, h4, h5, h6 {
       
       &.front-add-active {
         opacity: 1; }
+      
+      .layer-content {
+        backface-visibility: hidden;
+        
+        section {
+          backface-visibility: hidden; } }
       
       &.one {
         background-color: white;
@@ -372,13 +377,7 @@ h1, h2, h3, h4, h5, h6 {
               max-height: 379px; }
           
             @media (min-width: 736px) {
-              max-height: 401px; }
-          
-            @media (min-width: 1024) {
-              max-height: 617px; }
-          
-            @media (min-width: 1170) {
-              max-height: 800px; } } } } }
+              max-height: 550px; } } } } }
 
       .descriptor {
         transform: rotate(-90deg) translate(-23px,93px);
@@ -395,7 +394,9 @@ h1, h2, h3, h4, h5, h6 {
           color: rgba(white, 0.6);  } } }
 
 .dance {
-  animation: dance 2s ease infinite; }
+  animation: dance 2s ease infinite;
+  max-width: 200px;
+  display: block; }
 
 .letter-container {
   position: relative;

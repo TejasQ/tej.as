@@ -42,7 +42,7 @@ app = angular
         text: $sce.trustAsHtml("<code>html<br>&nbsp;&nbsp;head<br>&nbsp;&nbsp;&nbsp;&nbsp;title I love this.<br>&nbsp;&nbsp;body<br>&nbsp;&nbsp;&nbsp;&nbsp;p Hello<br>&nbsp;&nbsp;&nbsp;&nbsp;p My name is Tejas</code>") },
       {
         slug: 'css',
-        text: $sce.trustAsHtml("<code class='dance'>animation: dance 1s ease infinite;</code><br><div class='dancer'></div>") },
+        text: $sce.trustAsHtml("<code class='dance'>animation: dance 2s ease infinite;</code>") },
       {
         slug: 'sass',
         text: $sce.trustAsHtml("<code>$soAreVariables: rgba(white, 0.5);<br><br>.nesting {<br>&nbsp;&nbsp;.is-cool {<br>&nbsp;&nbsp;&nbsp;&nbsp;color: <br>&nbsp;&nbsp;&nbsp;&nbsp;$soAreVariables; } }</code>") },
