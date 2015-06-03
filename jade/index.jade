@@ -57,7 +57,7 @@ html(ng-app="tejas", ng-controller="site")
                 i.icon.layers-icon.black 
                 span See Layers
         div.layer.two(data-layer="1", data-ng-class="{front: layer.active === 'work'}")
-          h1.descriptor Work
+          h1.descriptor(data-ng-click="layers.open ? layers.open = false : layers.open = true") Work
           div.layer-content(ng-if="layer.active === 'work'")
             section
               p.big-text I create beautiful things with technology, currently for a company called <a target="_blank" href="http://grow.qa" rel="noindex">grow</a>. I believe in beautiful products &mdash; inside and out: from code to user interface.
@@ -66,7 +66,7 @@ html(ng-app="tejas", ng-controller="site")
                 li(data-ng-repeat="tech in technologies", data-ng-class="tech", style="background-image: url('img/tech/{{tech.slug}}.png')")
                   div(class="text", data-ng-bind-html="tech.text")
         div.layer.three(data-layer="2", data-ng-class="{front: layer.active === 'music'}")
-          h1.descriptor Music
+          h1.descriptor(data-ng-click="layers.open ? layers.open = false : layers.open = true") Music
           div.layer-content(data-ng-if="layer.active === 'music'")
             section
               p.big-text I love music. I play the guitar, the bass, and <em>my vocal cords</em>. I sometimes write songs and dabble in audio production. 
@@ -75,7 +75,7 @@ html(ng-app="tejas", ng-controller="site")
             div.embed-container
               iframe(scrolling="no", frameborder="no", src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/7808007&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true")
         div.layer.four(data-layer="3", data-ng-class="{front: layer.active === 'personal'}")
-          h1.descriptor.white About
+          h1.descriptor.white(data-ng-click="layers.open ? layers.open = false : layers.open = true") About
           div.layer-content(data-ng-if="layer.active === 'personal'")
             section
               p.big-text I was born with <a href="http://en.wikipedia.org/wiki/Hemophilia" rel="nofollow" target="_blank">hemophilia</a>. It&rsquo;s nasty. I&rsquo;ve lived with it all my life. Living with hemophilia, I could not do many things that regular folk can do: like go to school regularly as a child. In a year, I would attend about <em>two weeks</em> worth of school.
@@ -88,7 +88,7 @@ html(ng-app="tejas", ng-controller="site")
                   li Shortly after moving here, my family found out this country is one of the only countries in the <em>world</em> where this treatment is free for expats.
               p.big-text Miracles are real. If you&rsquo;d like to talk, <span class="link" ng-click="layer.active = 'contact'">hit me up</span>.
         div.layer.five(data-layer="4", data-ng-class="{front: layer.active === 'contact'}")
-          h1.descriptor.white Contact
+          h1.descriptor.white(data-ng-click="layers.open ? layers.open = false : layers.open = true") Contact
           div.layer-content(data-ng-if="layer.active === 'contact'")
             section
               p.big-text If you&rsquo;d like to get in touch, <a href="mailto:hello@tej.as">send me an email</a>. I can also be found on <a href="http://fb.com/tejaskumar" rel="nofollow" target="_blank">facebook</a>, <a href="http://twitter.com/tejaskumar_" rel="nofollow" target="_blank">twitter</a> and <a href="http://instagram.com/tejaskumar" rel="nofollow" target="_blank">instagram.</a> I look forward to hearing from you!
