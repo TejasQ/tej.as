@@ -1,4 +1,4 @@
-# tej.as [Go play!](http://www.tejaskumar.com/)
+# [tej.as](http://www.tejaskumar.com/)
 
 So this is my personal website. It's pretty cool because it exists as a node package. I wanted to use bower for dependencies, but didn't. Go explore the code and ask questions if you like!
 
